@@ -1,22 +1,6 @@
 <template>
   <div id="home-wrapper">
     <nav-bar></nav-bar>
-    <div
-      v-swiper:swiper="swiperOption"
-      @mouseenter="stopSwiper"
-      @mouseleave="startSwiper"
-    >
-      <div class="swiper-wrapper">
-        <div
-          v-for="(item, index) in dataImage"
-          :key="index"
-          class="swiper-slide"
-        >
-          <img class="image-item" :src="item.imgUrl" />
-        </div>
-      </div>
-      <div slot="pagination" class="swiper-pagination"></div>
-    </div>
   </div>
 </template>
 <script>
