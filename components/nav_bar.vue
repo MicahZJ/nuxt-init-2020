@@ -1,58 +1,74 @@
 <template>
   <div class="con-box">
-    <div class="con-left"></div>
+    <div class="con-left" />
     <el-menu
       :default-active="activeIndex"
       class="el-menu-demo"
       mode="horizontal"
       @select="handleSelect"
     >
-      <el-menu-item index="1" @click="$router.push({ name: 'index' })"
-        >首页</el-menu-item
+      <el-menu-item
+        index="1"
+        @click="$router.push({ name: 'index' })"
       >
-      <el-menu-item index="2" @click="$router.push({ name: 'home_page' })"
-        >关于我们</el-menu-item
+        首页
+      </el-menu-item>
+      <el-menu-item
+        index="2"
+        @click="$router.push({ name: 'home_page' })"
       >
-      <el-menu-item index="3">产品展示</el-menu-item>
-      <el-menu-item index="4">新闻中心</el-menu-item>
-      <el-menu-item index="5">工程案例</el-menu-item>
-      <el-menu-item index="6">服务体系</el-menu-item>
-      <el-menu-item index="7">人才招聘</el-menu-item>
+        关于我们
+      </el-menu-item>
+      <el-menu-item index="3">
+        产品展示
+      </el-menu-item>
+      <el-menu-item index="4">
+        新闻中心
+      </el-menu-item>
+      <el-menu-item index="5">
+        工程案例
+      </el-menu-item>
+      <el-menu-item index="6">
+        服务体系
+      </el-menu-item>
+      <el-menu-item index="7">
+        人才招聘
+      </el-menu-item>
     </el-menu>
   </div>
 </template>
 
 <script>
-import { mapGetters, mapMutations } from "vuex";
+import { mapGetters, mapMutations } from 'vuex'
 
 export default {
-  data() {
+  data () {
     return {
-      activeIndex: "1"
-    };
+      activeIndex: '1'
+    }
   },
   computed: {
-    ...mapGetters(["barIndex"])
+    ...mapGetters(['barIndex'])
   },
-  created() {},
-  mounted() {
-    this.getIndex();
+  created () {},
+  mounted () {
+    this.getIndex()
   },
   methods: {
     ...mapMutations({
-      change_index: "CHANGE_INDEX"
+      change_index: 'CHANGE_INDEX'
     }),
-    handleSelect(key, keyPath) {
-      console.log(key, keyPath);
-      this.activeIndex = key;
+    handleSelect (key, keyPath) {
+      // console.log(key, keyPath)
+      this.activeIndex = key
       // 每次切换导航栏，会把当前状态同步到vuex中
-      this.change_index(this.activeIndex);
+      this.change_index(this.activeIndex)
     },
-    getIndex() {
-      this.activeIndex = sessionStorage.getItem("barIndex");
+    getIndex () {
+      this.activeIndex = sessionStorage.getItem('barIndex') ? sessionStorage.getItem('barIndex') : '1'
     }
   }
-};
+}
 </script>
 
 <style scoped lang="stylus">

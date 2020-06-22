@@ -1,6 +1,4 @@
-# nuxt-websites
-
-> My ultimate Nuxt.js project
+# nux-mo--
 
 ## Build Setup
 

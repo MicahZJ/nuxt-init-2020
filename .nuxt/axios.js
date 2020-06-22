@@ -1,15 +1,6 @@
 import Axios from 'axios'
 import defu from 'defu'
 
-const globalName = 'nuxt'
-
-// Check Node.js brotli support
-let brotliSupported
-if (process.server) {
-  const zlib = require('zlib')
-  brotliSupported = typeof zlib.createBrotliDecompress == 'function'
-}
-
 // Axios.prototype cannot be modified
 const axiosExtra = {
   setBaseURL (baseURL) {
@@ -89,7 +80,10 @@ const setupProgress = (axios) => {
     set: () => { }
   }
 
-  const $loading = () => (window[globalName] && window[globalName].$loading && window[globalName].$loading.set) ? window[globalName].$loading : noopLoading
+  const $loading = () => {
+    const $nuxt = typeof window !== 'undefined' && window['$nuxt']
+    return ($nuxt && $nuxt.$loading && $nuxt.$loading.set) ? $nuxt.$loading : noopLoading
+  }
 
   let currentRequests = 0
 
@@ -175,8 +169,8 @@ export default (ctx, inject) => {
     axiosOptions.headers.common = { ...reqHeaders, ...axiosOptions.headers.common }
   }
 
-  // Don't accept brotli encoding because Node can't parse it
-  if (process.server && !brotliSupported) {
+  if (process.server) {
+    // Don't accept brotli encoding because Node can't parse it
     axiosOptions.headers.common['accept-encoding'] = 'gzip, deflate'
   }
 

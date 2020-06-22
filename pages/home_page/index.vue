@@ -1,22 +1,22 @@
 <template>
   <div id="home-wrapper">
-    <nav-bar></nav-bar>
+    <span>123</span>
   </div>
 </template>
 <script>
-import navBar from "../../components/nav_bar";
 export default {
-  data() {
+  components: {},
+  data () {
     return {
       dataImage: [
         {
-          imgUrl: require("../../assets/images/bgtop.jpg")
+          imgUrl: require('../../assets/images/bgtop.jpg')
         },
         {
-          imgUrl: require("../../assets/images/bgtop2.jpg")
+          imgUrl: require('../../assets/images/bgtop2.jpg')
         },
         {
-          imgUrl: require("../../assets/images/bgtop3.jpg")
+          imgUrl: require('../../assets/images/bgtop3.jpg')
         }
       ],
       swiperOption: {
@@ -27,33 +27,30 @@ export default {
         lazy: {
           loadPrevNext: true
         },
-        direction: "vertical",
+        direction: 'vertical',
         slidesPerView: 1,
         spaceBetween: 30,
         mousewheel: true,
         pagination: {
-          el: ".swiper-pagination",
+          el: '.swiper-pagination',
           clickable: true
         }
       }
-    };
+    }
   },
-  components: {
-    navBar
-  },
-  beforeMount() {},
-  swiper() {
+  beforeMount () {},
+  swiper () {
     // 如果你需要得到当前的swiper对象来做一些事情，你可以像下面这样定义一个方法属性来获取当前的swiper对象，同时notNextTick必须为true
-    return this.$refs.swiperBox.swiper;
+    return this.$refs.swiperBox.swiper
   },
   methods: {
-    stopSwiper() {
-      this.swiper.autoplay.stop();
+    stopSwiper () {
+      this.swiper.autoplay.stop()
     },
-    startSwiper() {
-      this.swiper.autoplay.start();
+    startSwiper () {
+      this.swiper.autoplay.start()
     }
   }
-};
+}
 </script>
 <style scoped lang="stylus" src="./style.styl"></style>
