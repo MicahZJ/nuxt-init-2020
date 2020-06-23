@@ -10,6 +10,10 @@ export const state = () => ({
   barIndex: '1'
 })
 
+export const getters = {
+  barIndex: state => state.barIndex
+}
+
 export const mutations = {
   CHANGE_INDEX (state, value) {
     state.barIndex = value
