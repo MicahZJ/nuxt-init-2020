@@ -1,40 +1,36 @@
 <template>
-  <div class="con-box">
-    <div class="con-left" />
-    <el-menu
-      :default-active="activeIndex"
-      class="el-menu-demo"
-      mode="horizontal"
-      @select="handleSelect"
-    >
-      <el-menu-item
-        index="1"
-        @click="$router.push({ name: 'index' })"
+  <div id="header-wrapper">
+    <div class="con-box">
+      <div class="con-left" />
+      <el-menu
+        :default-active="activeIndex"
+        class="el-menu-demo"
+        mode="horizontal"
+        @select="handleSelect"
       >
-        首页
-      </el-menu-item>
-      <el-menu-item
-        index="2"
-        @click="$router.push({ name: 'home_page' })"
-      >
-        关于我们
-      </el-menu-item>
-      <el-menu-item index="3">
-        产品展示
-      </el-menu-item>
-      <el-menu-item index="4">
-        新闻中心
-      </el-menu-item>
-      <el-menu-item index="5">
-        工程案例
-      </el-menu-item>
-      <el-menu-item index="6">
-        服务体系
-      </el-menu-item>
-      <el-menu-item index="7">
-        人才招聘
-      </el-menu-item>
-    </el-menu>
+        <el-menu-item
+          index="1"
+          @click="$router.push({ name: 'index' })"
+        >
+          首页
+        </el-menu-item>
+        <el-menu-item
+          index="2"
+          @click="$router.push({ name: 'home_page' })"
+        >
+          沸点
+        </el-menu-item>
+        <el-menu-item index="3">
+          话题
+        </el-menu-item>
+        <el-menu-item index="4">
+          小册
+        </el-menu-item>
+        <el-menu-item index="5">
+          活动
+        </el-menu-item>
+      </el-menu>
+    </div>
   </div>
 </template>
 
@@ -72,18 +68,35 @@ export default {
 </script>
 
 <style scoped lang="stylus">
-.con-box
+#header-wrapper
   width 100%
   height 60px
-  display flex
-  justify-content space-between
-  align-items center
-  .con-left
-    width 45%
-    height 100%
-    background url("../assets/images/fantasy-5062585_1920.jpg") no-repeat
-    background-size cover
-    border-bottom solid 1px #e6e6e6;
-  .el-menu-demo
-    width 55%
+  /*border-bottom 1px solid #35495e*/
+  box-shadow: 0 1px 4px rgba(0, 0, 0, .12), 0 0 6px rgba(0, 0, 0, .04)
+  /*position: fixed;*/
+  /*top: 0;*/
+  /*left: 0;*/
+  /*right: 0;*/
+  background white
+  animation translateTab 1s
+  @keyframes translateTab
+  {
+    0%   {transform: translate3d(0,-100%,0);}
+    100% {transform: translate3d(0,0,0);}
+  }
+  .con-box
+    max-width 960px
+    height 60px
+    margin 0 auto
+    display flex
+    justify-content flex-start
+    align-items center
+    .con-left
+      width 98px
+      height 100%
+      background url("../assets/images/fantasy-5062585_1920.jpg") no-repeat
+      background-size cover
+      /*border-bottom solid 1px #e6e6e6;*/
+    .el-menu-demo
+      max-width 960px
 </style>
