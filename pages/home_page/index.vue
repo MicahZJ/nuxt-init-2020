@@ -5,6 +5,11 @@
 </template>
 <script>
 export default {
+  async asyncData ({ $axios }) {
+    const aRes = {}
+    const res = await $axios.$post('/registerModel/getRoutPath', aRes)
+    console.log(res)
+  },
   components: {},
   data () {
     return {

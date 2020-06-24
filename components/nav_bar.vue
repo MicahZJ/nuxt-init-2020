@@ -99,4 +99,9 @@ export default {
       /*border-bottom solid 1px #e6e6e6;*/
     .el-menu-demo
       max-width 960px
+      height 60px
+      line-height 60px
+      li
+        height 60px
+        line-height 60px
 </style>
