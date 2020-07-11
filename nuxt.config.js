@@ -32,8 +32,8 @@ export default {
   ** https://nuxtjs.org/guide/plugins
   */
   plugins: [
-    '@/plugins/element-ui',
-    '@/plugins/axios'
+    { src: '@/plugins/element-ui', ssr: true },
+    { src: '@/plugins/axios', ssr: true }
   ],
   /*
   ** Nuxt.js dev-modules
@@ -96,5 +96,5 @@ export default {
       ]
     }
   },
-  vendor: ['axios'] // 防止重复打包
+  vendor: ['axios', 'element-ui'] // 防止重复打包
 }

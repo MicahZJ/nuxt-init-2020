@@ -8,9 +8,9 @@
 export default {
   async asyncData ({ $axios, error }) {
     // try {
-    //   const aRes = {}
-    //   const res = await $axios.$post('/registerModel/getRoutPath', aRes)
-    //   console.log('555555', res)
+    // const aRes = {}
+    // const res = await $axios.$post('/registerModel/getRoutPath', aRes)
+    // console.log('555555', res)
     // } catch (e) {
     //   console.log('555555', e.status)
     //   // error({ statusCode: res.code, message: res.msg })
